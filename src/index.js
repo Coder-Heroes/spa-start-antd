@@ -25,19 +25,9 @@ const App = () => {
           description={date ? date.format('YYYY-MM-DD') : 'None'}
         />
         <Alert message="Success Text" type="success" />
-        <Alert
-          message="Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text"
-          type="warning"
-          closable
-          onClose={onClose}
-        />
-        <Alert
-          message="Error Text"
-          description="Error Description Error Description Error Description Error Description Error Description Error Description"
-          type="error"
-          closable
-          onClose={onClose}
-        />
+        <Alert message="Info Text" type="info" />
+        <Alert message="Warning Text" type="warning" />
+        <Alert message="Error Text" type="error" />
       </div>
     </div>
   );
