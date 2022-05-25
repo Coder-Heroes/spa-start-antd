@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { render } from 'react-dom';
-import { DatePicker, message, Alert, Button, Space } from 'antd';
+import { DatePicker, message, Alert } from 'antd';
 import Marquee from 'react-fast-marquee';
 import { TextLoop } from 'react-text-loop-next';
 import 'antd/dist/antd.css';
@@ -30,56 +30,24 @@ const App = () => {
     <div style={{ width: 400, margin: '100px auto' }}>
       <DatePicker onChange={handleChange} />
       <div style={{ marginTop: 16 }}>
-        <Alert
-          message="Success Tips"
-          type="success"
-          showIcon
-          action={
-            <Button size="small" type="text">
-              UNDO
-            </Button>
-          }
-          closable
-        />
-        <Alert
-          message="Error Text"
-          showIcon
-          description="Error Description Error Description Error Description Error Description"
-          type="error"
-          action={
-            <Button size="small" danger>
-              Detail
-            </Button>
-          }
-        />
-        <Alert
-          message="Warning Text"
-          type="warning"
-          action={
-            <Space>
-              <Button size="small" type="ghost">
-                Done
-              </Button>
-            </Space>
-          }
-          closable
-        />
-        <Alert
-          message="Info Text"
-          description="Info Description Info Description Info Description Info Description"
-          type="info"
-          action={
-            <Space direction="vertical">
-              <Button size="small" type="primary">
-                Accept
-              </Button>
-              <Button size="small" danger type="ghost">
-                Decline
-              </Button>
-            </Space>
-          }
-          closable
-        />
+        {visible_1 || visible_2 ? (
+          <>
+            <Alert
+              message="Selected Date"
+              description={date ? date.format('YYYY-MM-DD') : 'None'}
+              type="success"
+              closable
+              afterClose={handleClose_1}
+            />
+            <Alert
+              message="Alert Message Text"
+              type="success"
+              closable
+              afterClose={handleClose_2}
+            />
+          </>
+        ) : null}
+        <p>placeholder text here</p>
       </div>
     </div>
   );
