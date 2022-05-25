@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { render } from 'react-dom';
 import { DatePicker, message, Alert } from 'antd';
+import Marquee from 'react-fast-marquee';
+import { TextLoop } from 'react-text-loop-next';
 import 'antd/dist/antd.css';
 import './index.css';
 
@@ -24,18 +26,26 @@ const App = () => {
           message="Selected Date"
           description={date ? date.format('YYYY-MM-DD') : 'None'}
         />
-        <br />
-        <Alert message="Warning text" banner />
-        <br />
         <Alert
-          message="Very long warning text warning text text text text text text text"
           banner
-          closable
+          message={
+            <TextLoop mask>
+              <div>Notice message one</div>
+              <div>Notice message two</div>
+              <div>Notice message three</div>
+              <div>Notice message four</div>
+            </TextLoop>
+          }
         />
-        <br />
-        <Alert showIcon={false} message="Warning text without icon" banner />
-        <br />
-        <Alert type="error" message="Error text" banner />
+        <Alert
+          banner
+          message={
+            <Marquee pauseOnHover gradient={false}>
+              I can be a React component, multiple React components, or just
+              some text.
+            </Marquee>
+          }
+        />
       </div>
     </div>
   );
