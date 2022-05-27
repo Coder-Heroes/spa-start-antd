@@ -3,74 +3,62 @@ import { render } from 'react-dom';
 import 'antd/dist/antd.css';
 import './index.css';
 
-import {
-  UploadOutlined,
-  UserOutlined,
-  VideoCameraOutlined,
-} from '@ant-design/icons';
-import { Layout, Menu } from 'antd';
-import React from 'react';
-const { Header, Content, Footer, Sider } = Layout;
+import { Breadcrumb, Layout, Menu } from 'antd';
+const { Header, Content, Footer } = Layout;
 
 const App = () => (
   <Layout>
-    <Sider
-      breakpoint="lg"
-      collapsedWidth="0"
-      onBreakpoint={broken => {
-        console.log(broken);
-      }}
-      onCollapse={(collapsed, type) => {
-        console.log(collapsed, type);
+    <Header
+      style={{
+        position: 'fixed',
+        zIndex: 1,
+        width: '100%',
       }}
     >
       <div className="logo" />
       <Menu
         theme="dark"
-        mode="inline"
-        defaultSelectedKeys={['4']}
-        items={[
-          UserOutlined,
-          VideoCameraOutlined,
-          UploadOutlined,
-          UserOutlined,
-        ].map((icon, index) => ({
+        mode="horizontal"
+        defaultSelectedKeys={['2']}
+        items={new Array(3).fill(null).map((_, index) => ({
           key: String(index + 1),
-          icon: React.createElement(icon),
           label: `nav ${index + 1}`,
         }))}
       />
-    </Sider>
-    <Layout>
-      <Header
-        className="site-layout-sub-header-background"
+    </Header>
+    <Content
+      className="site-layout"
+      style={{
+        padding: '0 50px',
+        marginTop: 64,
+      }}
+    >
+      <Breadcrumb
         style={{
-          padding: 0,
-        }}
-      />
-      <Content
-        style={{
-          margin: '24px 16px 0',
-        }}
-      >
-        <div
-          className="site-layout-background"
-          style={{
-            padding: 24,
-            minHeight: 360,
-          }}
-        >
-          content
-        </div>
-      </Content>
-      <Footer
-        style={{
-          textAlign: 'center',
+          margin: '16px 0',
         }}
       >
-        Ant Design ©2018 Created by Ant UED
-      </Footer>
-    </Layout>
+        <Breadcrumb.Item>Home</Breadcrumb.Item>
+        <Breadcrumb.Item>List</Breadcrumb.Item>
+        <Breadcrumb.Item>App</Breadcrumb.Item>
+      </Breadcrumb>
+      <div
+        className="site-layout-background"
+        style={{
+          padding: 24,
+          minHeight: 380,
+        }}
+      >
+        Content
+      </div>
+    </Content>
+    <Footer
+      style={{
+        textAlign: 'center',
+      }}
+    >
+      Ant Design ©2018 Created by Ant UED
+    </Footer>
   </Layout>
 );
 
