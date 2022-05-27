@@ -3,62 +3,184 @@ import { render } from 'react-dom';
 import 'antd/dist/antd.css';
 import './index.css';
 
-import { Breadcrumb, Layout, Menu } from 'antd';
-const { Header, Content, Footer } = Layout;
+import {
+  AppstoreOutlined,
+  BarChartOutlined,
+  CloudOutlined,
+  ShopOutlined,
+  TeamOutlined,
+  UploadOutlined,
+  UserOutlined,
+  VideoCameraOutlined,
+} from '@ant-design/icons';
+import { Layout, Menu } from 'antd';
+import React from 'react';
+const { Header, Content, Footer, Sider } = Layout;
+const items = [
+  UserOutlined,
+  VideoCameraOutlined,
+  UploadOutlined,
+  BarChartOutlined,
+  CloudOutlined,
+  AppstoreOutlined,
+  TeamOutlined,
+  ShopOutlined,
+].map((icon, index) => ({
+  key: String(index + 1),
+  icon: React.createElement(icon),
+  label: `nav ${index + 1}`,
+}));
 
 const App = () => (
-  <Layout>
-    <Header
+  <Layout hasSider>
+    <Sider
       style={{
+        overflow: 'auto',
+        height: '100vh',
         position: 'fixed',
-        zIndex: 1,
-        width: '100%',
+        left: 0,
+        top: 0,
+        bottom: 0,
       }}
     >
       <div className="logo" />
       <Menu
         theme="dark"
-        mode="horizontal"
-        defaultSelectedKeys={['2']}
-        items={new Array(3).fill(null).map((_, index) => ({
-          key: String(index + 1),
-          label: `nav ${index + 1}`,
-        }))}
+        mode="inline"
+        defaultSelectedKeys={['4']}
+        items={items}
       />
-    </Header>
-    <Content
+    </Sider>
+    <Layout
       className="site-layout"
       style={{
-        padding: '0 50px',
-        marginTop: 64,
+        marginLeft: 200,
       }}
     >
-      <Breadcrumb
-        style={{
-          margin: '16px 0',
-        }}
-      >
-        <Breadcrumb.Item>Home</Breadcrumb.Item>
-        <Breadcrumb.Item>List</Breadcrumb.Item>
-        <Breadcrumb.Item>App</Breadcrumb.Item>
-      </Breadcrumb>
-      <div
+      <Header
         className="site-layout-background"
         style={{
-          padding: 24,
-          minHeight: 380,
+          padding: 0,
+        }}
+      />
+      <Content
+        style={{
+          margin: '24px 16px 0',
+          overflow: 'initial',
         }}
       >
-        Content
-      </div>
-    </Content>
-    <Footer
-      style={{
-        textAlign: 'center',
-      }}
-    >
-      Ant Design ©2018 Created by Ant UED
-    </Footer>
+        <div
+          className="site-layout-background"
+          style={{
+            padding: 24,
+            textAlign: 'center',
+          }}
+        >
+          ...
+          <br />
+          Really
+          <br />
+          ...
+          <br />
+          ...
+          <br />
+          ...
+          <br />
+          long
+          <br />
+          ...
+          <br />
+          ...
+          <br />
+          ...
+          <br />
+          ...
+          <br />
+          ...
+          <br />
+          ...
+          <br />
+          ...
+          <br />
+          ...
+          <br />
+          ...
+          <br />
+          ...
+          <br />
+          ...
+          <br />
+          ...
+          <br />
+          ...
+          <br />
+          ...
+          <br />
+          ...
+          <br />
+          ...
+          <br />
+          ...
+          <br />
+          ...
+          <br />
+          ...
+          <br />
+          ...
+          <br />
+          ...
+          <br />
+          ...
+          <br />
+          ...
+          <br />
+          ...
+          <br />
+          ...
+          <br />
+          ...
+          <br />
+          ...
+          <br />
+          ...
+          <br />
+          ...
+          <br />
+          ...
+          <br />
+          ...
+          <br />
+          ...
+          <br />
+          ...
+          <br />
+          ...
+          <br />
+          ...
+          <br />
+          ...
+          <br />
+          ...
+          <br />
+          ...
+          <br />
+          ...
+          <br />
+          ...
+          <br />
+          ...
+          <br />
+          content
+        </div>
+      </Content>
+      <Footer
+        style={{
+          textAlign: 'center',
+        }}
+      >
+        Ant Design ©2018 Created by Ant UED
+      </Footer>
+    </Layout>
   </Layout>
 );
 
