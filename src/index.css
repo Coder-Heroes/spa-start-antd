@@ -15,8 +15,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
 .site-card-border-less-wrapper {
-  padding: 50px;
+  padding: 30px;
   background: #ececec;
 }
