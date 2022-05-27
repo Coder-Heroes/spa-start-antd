@@ -5,10 +5,10 @@ import 'antd/dist/antd.css';
 import './index.css';
 
 const App = () => (
-  <>
+  <div className="site-card-border-less-wrapper">
     <Card
-      title="Default size card"
-      extra={<a href="#">More</a>}
+      title="Card title"
+      bordered={false}
       style={{
         width: 300,
       }}
@@ -17,19 +17,7 @@ const App = () => (
       <p>Card content</p>
       <p>Card content</p>
     </Card>
-    <Card
-      size="small"
-      title="Small size card"
-      extra={<a href="#">More</a>}
-      style={{
-        width: 300,
-      }}
-    >
-      <p>Card content</p>
-      <p>Card content</p>
-      <p>Card content</p>
-    </Card>
-  </>
+  </div>
 );
 
 render(<App />, document.getElementById('root'));
