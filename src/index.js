@@ -4,73 +4,74 @@ import 'antd/dist/antd.css';
 import './index.css';
 
 import {
-  MenuFoldOutlined,
-  MenuUnfoldOutlined,
   UploadOutlined,
   UserOutlined,
   VideoCameraOutlined,
 } from '@ant-design/icons';
 import { Layout, Menu } from 'antd';
-import React, { useState } from 'react';
-const { Header, Sider, Content } = Layout;
+import React from 'react';
+const { Header, Content, Footer, Sider } = Layout;
 
-const App = () => {
-  const [collapsed, setCollapsed] = useState(false);
-  return (
+const App = () => (
+  <Layout>
+    <Sider
+      breakpoint="lg"
+      collapsedWidth="0"
+      onBreakpoint={broken => {
+        console.log(broken);
+      }}
+      onCollapse={(collapsed, type) => {
+        console.log(collapsed, type);
+      }}
+    >
+      <div className="logo" />
+      <Menu
+        theme="dark"
+        mode="inline"
+        defaultSelectedKeys={['4']}
+        items={[
+          UserOutlined,
+          VideoCameraOutlined,
+          UploadOutlined,
+          UserOutlined,
+        ].map((icon, index) => ({
+          key: String(index + 1),
+          icon: React.createElement(icon),
+          label: `nav ${index + 1}`,
+        }))}
+      />
+    </Sider>
     <Layout>
-      <Sider trigger={null} collapsible collapsed={collapsed}>
-        <div className="logo" />
-        <Menu
-          theme="dark"
-          mode="inline"
-          defaultSelectedKeys={['1']}
-          items={[
-            {
-              key: '1',
-              icon: <UserOutlined />,
-              label: 'nav 1',
-            },
-            {
-              key: '2',
-              icon: <VideoCameraOutlined />,
-              label: 'nav 2',
-            },
-            {
-              key: '3',
-              icon: <UploadOutlined />,
-              label: 'nav 3',
-            },
-          ]}
-        />
-      </Sider>
-      <Layout className="site-layout">
-        <Header
+      <Header
+        className="site-layout-sub-header-background"
+        style={{
+          padding: 0,
+        }}
+      />
+      <Content
+        style={{
+          margin: '24px 16px 0',
+        }}
+      >
+        <div
           className="site-layout-background"
           style={{
-            padding: 0,
-          }}
-        >
-          {React.createElement(
-            collapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
-            {
-              className: 'trigger',
-              onClick: () => setCollapsed(!collapsed),
-            }
-          )}
-        </Header>
-        <Content
-          className="site-layout-background"
-          style={{
-            margin: '24px 16px',
             padding: 24,
-            minHeight: 280,
+            minHeight: 360,
           }}
         >
-          Content
-        </Content>
-      </Layout>
+          content
+        </div>
+      </Content>
+      <Footer
+        style={{
+          textAlign: 'center',
+        }}
+      >
+        Ant Design ©2018 Created by Ant UED
+      </Footer>
     </Layout>
-  );
-};
+  </Layout>
+);
 
 render(<App />, document.getElementById('root'));
