@@ -1,38 +1,35 @@
 import React, { useState } from 'react';
 import { render } from 'react-dom';
-import { DatePicker, message, Button, Alert } from 'antd';
-
-import Marquee from 'react-fast-marquee';
-import { TextLoop } from 'react-text-loop-next';
+import { Card } from 'antd';
 import 'antd/dist/antd.css';
 import './index.css';
 
-const { ErrorBoundary } = Alert;
-
-const ThrowError = () => {
-  const [error, setError] = useState();
-
-  const onClick = () => {
-    setError(new Error('An Uncaught Error'));
-  };
-
-  if (error) {
-    throw error;
-  }
-
-  return (
-    <Button danger onClick={onClick}>
-      Click me to throw a error
-    </Button>
-  );
-};
-
 const App = () => (
-  <ErrorBoundary>
-    <ThrowError />
-  </ErrorBoundary>
+  <>
+    <Card
+      title="Default size card"
+      extra={<a href="#">More</a>}
+      style={{
+        width: 300,
+      }}
+    >
+      <p>Card content</p>
+      <p>Card content</p>
+      <p>Card content</p>
+    </Card>
+    <Card
+      size="small"
+      title="Small size card"
+      extra={<a href="#">More</a>}
+      style={{
+        width: 300,
+      }}
+    >
+      <p>Card content</p>
+      <p>Card content</p>
+      <p>Card content</p>
+    </Card>
+  </>
 );
-
-export default App;
 
 render(<App />, document.getElementById('root'));
