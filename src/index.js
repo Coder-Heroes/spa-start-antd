@@ -11,7 +11,7 @@ import {
 } from '@ant-design/icons';
 import { Breadcrumb, Layout, Menu } from 'antd';
 
-const { Header, Content, Sider } = Layout;
+const { Header, Content, Footer, Sider } = Layout;
 const items1 = ['1', '2', '3'].map(key => ({
   key,
   label: `nav ${key}`,
@@ -45,45 +45,54 @@ const App = () => (
         items={items1}
       />
     </Header>
-    <Layout>
-      <Sider width={200} className="site-layout-background">
-        <Menu
-          mode="inline"
-          defaultSelectedKeys={['1']}
-          defaultOpenKeys={['sub1']}
-          style={{
-            height: '100%',
-            borderRight: 0,
-          }}
-          items={items2}
-        />
-      </Sider>
-      <Layout
+    <Content
+      style={{
+        padding: '0 50px',
+      }}
+    >
+      <Breadcrumb
         style={{
-          padding: '0 24px 24px',
+          margin: '16px 0',
         }}
       >
-        <Breadcrumb
-          style={{
-            margin: '16px 0',
-          }}
-        >
-          <Breadcrumb.Item>Home</Breadcrumb.Item>
-          <Breadcrumb.Item>List</Breadcrumb.Item>
-          <Breadcrumb.Item>App</Breadcrumb.Item>
-        </Breadcrumb>
+        <Breadcrumb.Item>Home</Breadcrumb.Item>
+        <Breadcrumb.Item>List</Breadcrumb.Item>
+        <Breadcrumb.Item>App</Breadcrumb.Item>
+      </Breadcrumb>
+      <Layout
+        className="site-layout-background"
+        style={{
+          padding: '24px 0',
+        }}
+      >
+        <Sider className="site-layout-background" width={200}>
+          <Menu
+            mode="inline"
+            defaultSelectedKeys={['1']}
+            defaultOpenKeys={['sub1']}
+            style={{
+              height: '100%',
+            }}
+            items={items2}
+          />
+        </Sider>
         <Content
-          className="site-layout-background"
           style={{
-            padding: 24,
-            margin: 0,
+            padding: '0 24px',
             minHeight: 280,
           }}
         >
           Content
         </Content>
       </Layout>
-    </Layout>
+    </Content>
+    <Footer
+      style={{
+        textAlign: 'center',
+      }}
+    >
+      Ant Design ©2018 Created by Ant UED
+    </Footer>
   </Layout>
 );
 
