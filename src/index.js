@@ -4,44 +4,50 @@ import { render } from 'react-dom';
 import 'antd/dist/antd.css';
 import './index.css';
 
-import { Layout } from 'antd';
-const { Header, Footer, Sider, Content } = Layout;
+import { Breadcrumb, Layout, Menu } from 'antd';
+const { Header, Content, Footer } = Layout;
 
 const App = () => (
-  <>
-    <Layout>
-      <Header>Header</Header>
-      <Content>Content</Content>
-      <Footer>Footer</Footer>
-    </Layout>
-
-    <Layout>
-      <Header>Header</Header>
-      <Layout>
-        <Sider>Sider</Sider>
-        <Content>Content</Content>
-      </Layout>
-      <Footer>Footer</Footer>
-    </Layout>
-
-    <Layout>
-      <Header>Header</Header>
-      <Layout>
-        <Content>Content</Content>
-        <Sider>Sider</Sider>
-      </Layout>
-      <Footer>Footer</Footer>
-    </Layout>
-
-    <Layout>
-      <Sider>Sider</Sider>
-      <Layout>
-        <Header>Header</Header>
-        <Content>Content</Content>
-        <Footer>Footer</Footer>
-      </Layout>
-    </Layout>
-  </>
+  <Layout className="layout">
+    <Header>
+      <div className="logo" />
+      <Menu
+        theme="dark"
+        mode="horizontal"
+        defaultSelectedKeys={['2']}
+        items={new Array(15).fill(null).map((_, index) => {
+          const key = index + 1;
+          return {
+            key,
+            label: `nav ${key}`,
+          };
+        })}
+      />
+    </Header>
+    <Content
+      style={{
+        padding: '0 50px',
+      }}
+    >
+      <Breadcrumb
+        style={{
+          margin: '16px 0',
+        }}
+      >
+        <Breadcrumb.Item>Home</Breadcrumb.Item>
+        <Breadcrumb.Item>List</Breadcrumb.Item>
+        <Breadcrumb.Item>App</Breadcrumb.Item>
+      </Breadcrumb>
+      <div className="site-layout-content">Content</div>
+    </Content>
+    <Footer
+      style={{
+        textAlign: 'center',
+      }}
+    >
+      Ant Design ©2018 Created by Ant UED
+    </Footer>
+  </Layout>
 );
 
 render(<App />, document.getElementById('root'));
