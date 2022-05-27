@@ -4,15 +4,22 @@ import { Card } from 'antd';
 import 'antd/dist/antd.css';
 import './index.css';
 
+const { Meta } = Card;
+
 const App = () => (
   <Card
+    hoverable
     style={{
-      width: 300,
+      width: 240,
     }}
+    cover={
+      <img
+        alt="example"
+        src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
+      />
+    }
   >
-    <p>Card content</p>
-    <p>Card content</p>
-    <p>Card content</p>
+    <Meta title="Europe Street beat" description="www.instagram.com" />
   </Card>
 );
 
