@@ -5,25 +5,28 @@ import React from 'react';
 import 'antd/dist/antd.css';
 import './index.css';
 
-import { UploadOutlined } from '@ant-design/icons';
-import { Button, Popconfirm, Space, Upload } from 'antd';
+import { Card, Space } from 'antd';
 
 const App = () => (
-  <Space>
-    Space
-    <Button type="primary">Button</Button>
-    <Upload>
-      <Button>
-        <UploadOutlined /> Click to Upload
-      </Button>
-    </Upload>
-    <Popconfirm
-      title="Are you sure delete this task?"
-      okText="Yes"
-      cancelText="No"
-    >
-      <Button>Confirm</Button>
-    </Popconfirm>
+  <Space
+    direction="vertical"
+    size="middle"
+    style={{
+      display: 'flex',
+    }}
+  >
+    <Card title="Card" size="small">
+      <p>Card content</p>
+      <p>Card content</p>
+    </Card>
+    <Card title="Card" size="small">
+      <p>Card content</p>
+      <p>Card content</p>
+    </Card>
+    <Card title="Card" size="small">
+      <p>Card content</p>
+      <p>Card content</p>
+    </Card>
   </Space>
 );
 
