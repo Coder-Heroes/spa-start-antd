@@ -5,81 +5,57 @@ import React from 'react';
 import 'antd/dist/antd.css';
 import './index.css';
 
-import { SearchOutlined } from '@ant-design/icons';
-import { Button, Tooltip } from 'antd';
+import { Button } from 'antd';
 
 const App = () => (
   <>
-    <Tooltip title="search">
-      <Button type="primary" shape="circle" icon={<SearchOutlined />} />
-    </Tooltip>
-    <Button type="primary" shape="circle">
-      A
-    </Button>
-    <Button type="primary" icon={<SearchOutlined />}>
-      Search
-    </Button>
-    <Tooltip title="search">
-      <Button shape="circle" icon={<SearchOutlined />} />
-    </Tooltip>
-    <Button icon={<SearchOutlined />}>Search</Button>
-    <br />
-    <Tooltip title="search">
-      <Button shape="circle" icon={<SearchOutlined />} />
-    </Tooltip>
-    <Button icon={<SearchOutlined />}>Search</Button>
-    <Tooltip title="search">
-      <Button type="dashed" shape="circle" icon={<SearchOutlined />} />
-    </Tooltip>
-    <Button type="dashed" icon={<SearchOutlined />}>
-      Search
-    </Button>
-    <Button icon={<SearchOutlined />} href="https://www.google.com" />
-    <br />
-    <br />
-    <Tooltip title="search">
-      <Button
-        type="primary"
-        shape="circle"
-        icon={<SearchOutlined />}
-        size="large"
-      />
-    </Tooltip>
-    <Button type="primary" shape="circle" size="large">
-      A
-    </Button>
-    <Button type="primary" icon={<SearchOutlined />} size="large">
-      Search
-    </Button>
-    <Tooltip title="search">
-      <Button shape="circle" icon={<SearchOutlined />} size="large" />
-    </Tooltip>
-    <Button icon={<SearchOutlined />} size="large">
-      Search
+    <Button type="primary">Primary</Button>
+    <Button type="primary" disabled>
+      Primary(disabled)
     </Button>
     <br />
-    <Tooltip title="search">
-      <Button shape="circle" icon={<SearchOutlined />} size="large" />
-    </Tooltip>
-    <Button icon={<SearchOutlined />} size="large">
-      Search
+    <Button>Default</Button>
+    <Button disabled>Default(disabled)</Button>
+    <br />
+    <Button type="dashed">Dashed</Button>
+    <Button type="dashed" disabled>
+      Dashed(disabled)
     </Button>
-    <Tooltip title="search">
-      <Button
-        type="dashed"
-        shape="circle"
-        icon={<SearchOutlined />}
-        size="large"
-      />
-    </Tooltip>
-    <Button type="dashed" icon={<SearchOutlined />} size="large">
-      Search
+    <br />
+    <Button type="text">Text</Button>
+    <Button type="text" disabled>
+      Text(disabled)
     </Button>
-    <Button
-      icon={<SearchOutlined />}
-      size="large"
-      href="https://www.google.com"
-    />
+    <br />
+    <Button type="link">Link</Button>
+    <Button type="link" disabled>
+      Link(disabled)
+    </Button>
+    <br />
+    <Button danger>Danger Default</Button>
+    <Button danger disabled>
+      Danger Default(disabled)
+    </Button>
+    <br />
+    <Button danger type="text">
+      Danger Text
+    </Button>
+    <Button danger type="text" disabled>
+      Danger Text(disabled)
+    </Button>
+    <br />
+    <Button type="link" danger>
+      Danger Link
+    </Button>
+    <Button type="link" danger disabled>
+      Danger Link(disabled)
+    </Button>
+    <div className="site-button-ghost-wrapper">
+      <Button ghost>Ghost</Button>
+      <Button ghost disabled>
+        Ghost(disabled)
+      </Button>
+    </div>
   </>
 );
 
