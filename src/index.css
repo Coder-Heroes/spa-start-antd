@@ -18,11 +18,7 @@ code {
 
 /* Ant Design Part*/
 
-#components-layout-demo-fixed-sider .logo {
-  height: 32px;
-  margin: 16px;
-  background: rgba(255, 255, 255, 0.2);
-}
-.site-layout .site-layout-background {
-  background: #fff;
+.site-button-ghost-wrapper {
+  padding: 26px 16px 16px;
+  background: rgb(190, 200, 200);
 }
