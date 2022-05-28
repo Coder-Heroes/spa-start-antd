@@ -7,54 +7,58 @@ import './index.css';
 
 import { Col, Divider, Row } from 'antd';
 
+const DemoBox = props => (
+  <p className={`height-${props.value}`}>{props.children}</p>
+);
+
 const App = () => (
   <>
-    <Divider orientation="left">sub-element align left</Divider>
-    <Row justify="start">
-      <Col span={4}>col-4</Col>
-      <Col span={4}>col-4</Col>
-      <Col span={4}>col-4</Col>
-      <Col span={4}>col-4</Col>
+    <Divider orientation="left">Align Top</Divider>
+    <Row justify="center" align="top">
+      <Col span={4}>
+        <DemoBox value={100}>col-4</DemoBox>
+      </Col>
+      <Col span={4}>
+        <DemoBox value={50}>col-4</DemoBox>
+      </Col>
+      <Col span={4}>
+        <DemoBox value={120}>col-4</DemoBox>
+      </Col>
+      <Col span={4}>
+        <DemoBox value={80}>col-4</DemoBox>
+      </Col>
     </Row>
 
-    <Divider orientation="left">sub-element align center</Divider>
-    <Row justify="center">
-      <Col span={4}>col-4</Col>
-      <Col span={4}>col-4</Col>
-      <Col span={4}>col-4</Col>
-      <Col span={4}>col-4</Col>
+    <Divider orientation="left">Align Middle</Divider>
+    <Row justify="space-around" align="middle">
+      <Col span={4}>
+        <DemoBox value={100}>col-4</DemoBox>
+      </Col>
+      <Col span={4}>
+        <DemoBox value={50}>col-4</DemoBox>
+      </Col>
+      <Col span={4}>
+        <DemoBox value={120}>col-4</DemoBox>
+      </Col>
+      <Col span={4}>
+        <DemoBox value={80}>col-4</DemoBox>
+      </Col>
     </Row>
 
-    <Divider orientation="left">sub-element align right</Divider>
-    <Row justify="end">
-      <Col span={4}>col-4</Col>
-      <Col span={4}>col-4</Col>
-      <Col span={4}>col-4</Col>
-      <Col span={4}>col-4</Col>
-    </Row>
-
-    <Divider orientation="left">sub-element monospaced arrangement</Divider>
-    <Row justify="space-between">
-      <Col span={4}>col-4</Col>
-      <Col span={4}>col-4</Col>
-      <Col span={4}>col-4</Col>
-      <Col span={4}>col-4</Col>
-    </Row>
-
-    <Divider orientation="left">sub-element align full</Divider>
-    <Row justify="space-around">
-      <Col span={4}>col-4</Col>
-      <Col span={4}>col-4</Col>
-      <Col span={4}>col-4</Col>
-      <Col span={4}>col-4</Col>
-    </Row>
-
-    <Divider orientation="left">sub-element align evenly</Divider>
-    <Row justify="space-evenly">
-      <Col span={4}>col-4</Col>
-      <Col span={4}>col-4</Col>
-      <Col span={4}>col-4</Col>
-      <Col span={4}>col-4</Col>
+    <Divider orientation="left">Align Bottom</Divider>
+    <Row justify="space-between" align="bottom">
+      <Col span={4}>
+        <DemoBox value={100}>col-4</DemoBox>
+      </Col>
+      <Col span={4}>
+        <DemoBox value={50}>col-4</DemoBox>
+      </Col>
+      <Col span={4}>
+        <DemoBox value={120}>col-4</DemoBox>
+      </Col>
+      <Col span={4}>
+        <DemoBox value={80}>col-4</DemoBox>
+      </Col>
     </Row>
   </>
 );
