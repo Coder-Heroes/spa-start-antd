@@ -5,27 +5,77 @@ import React from 'react';
 import 'antd/dist/antd.css';
 import './index.css';
 
-import { Col, Row } from 'antd';
+import { Col, Divider, Row } from 'antd';
+const style = {
+  background: '#0092ff',
+  padding: '8px 0',
+};
 
 const App = () => (
   <>
-    <Row>
-      <Col span={24}>col</Col>
+    <Divider orientation="left">Horizontal</Divider>
+    <Row gutter={16}>
+      <Col className="gutter-row" span={6}>
+        <div style={style}>col-6-11</div>
+      </Col>
+      <Col className="gutter-row" span={6}>
+        <div style={style}>col-6-12</div>
+      </Col>
+      <Col className="gutter-row" span={6}>
+        <div style={style}>col-6-13</div>
+      </Col>
+      <Col className="gutter-row" span={6}>
+        <div style={style}>col-6-14</div>
+      </Col>
     </Row>
-    <Row>
-      <Col span={12}>col-12</Col>
-      <Col span={12}>col-12</Col>
+    <Divider orientation="left">Responsive</Divider>
+    <Row
+      gutter={{
+        xs: 8,
+        sm: 16,
+        md: 24,
+        lg: 32,
+      }}
+    >
+      <Col className="gutter-row" span={6}>
+        <div style={style}>col-6</div>
+      </Col>
+      <Col className="gutter-row" span={6}>
+        <div style={style}>col-6</div>
+      </Col>
+      <Col className="gutter-row" span={6}>
+        <div style={style}>col-6</div>
+      </Col>
+      <Col className="gutter-row" span={6}>
+        <div style={style}>col-6</div>
+      </Col>
     </Row>
-    <Row>
-      <Col span={8}>col-8</Col>
-      <Col span={8}>col-8</Col>
-      <Col span={8}>col-8</Col>
-    </Row>
-    <Row>
-      <Col span={6}>col-6</Col>
-      <Col span={6}>col-6</Col>
-      <Col span={6}>col-6</Col>
-      <Col span={6}>col-6</Col>
+    <Divider orientation="left">Vertical</Divider>
+    <Row gutter={[16, 24]}>
+      <Col className="gutter-row" span={6}>
+        <div style={style}>col-6</div>
+      </Col>
+      <Col className="gutter-row" span={6}>
+        <div style={style}>col-6</div>
+      </Col>
+      <Col className="gutter-row" span={6}>
+        <div style={style}>col-6</div>
+      </Col>
+      <Col className="gutter-row" span={6}>
+        <div style={style}>col-6</div>
+      </Col>
+      <Col className="gutter-row" span={6}>
+        <div style={style}>col-6</div>
+      </Col>
+      <Col className="gutter-row" span={6}>
+        <div style={style}>col-6</div>
+      </Col>
+      <Col className="gutter-row" span={6}>
+        <div style={style}>col-6</div>
+      </Col>
+      <Col className="gutter-row" span={6}>
+        <div style={style}>col-6</div>
+      </Col>
     </Row>
   </>
 );
