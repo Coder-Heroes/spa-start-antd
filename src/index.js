@@ -9,91 +9,33 @@ import { Col, Divider, Row } from 'antd';
 
 const App = () => (
   <>
-    <Divider orientation="left">Normal</Divider>
+    <Divider orientation="left">Percentage columns</Divider>
     <Row>
-      <Col span={6} order={4}>
-        1 col-order-4
-      </Col>
-      <Col span={6} order={3}>
-        2 col-order-3
-      </Col>
-      <Col span={6} order={2}>
-        3 col-order-2
-      </Col>
-      <Col span={6} order={1}>
-        4 col-order-1
-      </Col>
+      <Col flex={2}>2 / 5</Col>
+      <Col flex={3}>3 / 5</Col>
     </Row>
-    <Divider orientation="left">Responsive</Divider>
+    <Divider orientation="left">Fill rest</Divider>
     <Row>
-      <Col
-        span={6}
-        xs={{
-          order: 1,
-        }}
-        sm={{
-          order: 2,
-        }}
-        md={{
-          order: 3,
-        }}
-        lg={{
-          order: 4,
-        }}
-      >
-        1 col-order-responsive
+      <Col flex="100px">100px</Col>
+      <Col flex="auto">Fill Rest</Col>
+    </Row>
+    <Divider orientation="left">Raw flex style</Divider>
+    <Row>
+      <Col flex="1 1 200px">1 1 200px</Col>
+      <Col flex="0 1 300px">0 1 300px</Col>
+    </Row>
+
+    <Row wrap={false}>
+      <Col flex="none">
+        <div
+          style={{
+            padding: '0 16px',
+          }}
+        >
+          none
+        </div>
       </Col>
-      <Col
-        span={6}
-        xs={{
-          order: 2,
-        }}
-        sm={{
-          order: 1,
-        }}
-        md={{
-          order: 4,
-        }}
-        lg={{
-          order: 3,
-        }}
-      >
-        2 col-order-responsive
-      </Col>
-      <Col
-        span={6}
-        xs={{
-          order: 3,
-        }}
-        sm={{
-          order: 4,
-        }}
-        md={{
-          order: 2,
-        }}
-        lg={{
-          order: 1,
-        }}
-      >
-        3 col-order-responsive
-      </Col>
-      <Col
-        span={6}
-        xs={{
-          order: 4,
-        }}
-        sm={{
-          order: 3,
-        }}
-        md={{
-          order: 1,
-        }}
-        lg={{
-          order: 2,
-        }}
-      >
-        4 col-order-responsive
-      </Col>
+      <Col flex="auto">auto with no-wrap</Col>
     </Row>
   </>
 );
