@@ -8,18 +8,18 @@ import './index.css';
 import { Button } from 'antd';
 
 const App = () => (
-  <div className="site-button-ghost-wrapper">
-    <Button type="primary" ghost>
+  <>
+    <Button type="primary" block>
       Primary
     </Button>
-    <Button ghost>Default</Button>
-    <Button type="dashed" ghost>
+    <Button block>Default</Button>
+    <Button type="dashed" block>
       Dashed
     </Button>
-    <Button type="primary" danger ghost>
-      Danger
+    <Button type="link" block>
+      Link
     </Button>
-  </div>
+  </>
 );
 
 render(<App />, document.getElementById('root'));
