@@ -5,18 +5,17 @@ import React from 'react';
 import 'antd/dist/antd.css';
 import './index.css';
 
-import {
-  CheckCircleTwoTone,
-  HeartTwoTone,
-  SmileTwoTone,
-} from '@ant-design/icons';
+import { createFromIconfontCN } from '@ant-design/icons';
 import { Space } from 'antd';
+const IconFont = createFromIconfontCN({
+  scriptUrl: '//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js',
+});
 
 const App = () => (
   <Space>
-    <SmileTwoTone />
-    <HeartTwoTone twoToneColor="#eb2f96" />
-    <CheckCircleTwoTone twoToneColor="#52c41a" />
+    <IconFont type="icon-tuichu" />
+    <IconFont type="icon-facebook" />
+    <IconFont type="icon-twitter" />
   </Space>
 );
 
