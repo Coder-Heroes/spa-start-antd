@@ -5,24 +5,24 @@ import React from 'react';
 import 'antd/dist/antd.css';
 import './index.css';
 
-import { Button } from 'antd';
+import {
+  HomeOutlined,
+  LoadingOutlined,
+  SettingFilled,
+  SmileOutlined,
+  SyncOutlined,
+} from '@ant-design/icons';
+import { Space } from 'antd';
 
 const App = () => (
-  <>
-    <Button type="primary" danger>
-      Primary
-    </Button>
-    <Button danger>Default</Button>
-    <Button type="dashed" danger>
-      Dashed
-    </Button>
-    <Button type="text" danger>
-      Text
-    </Button>
-    <Button type="link" danger>
-      Link
-    </Button>
-  </>
+  <Space>
+    <HomeOutlined />
+    <SettingFilled />
+    <SmileOutlined />
+    <SyncOutlined spin />
+    <SmileOutlined rotate={180} />
+    <LoadingOutlined />
+  </Space>
 );
 
 render(<App />, document.getElementById('root'));
