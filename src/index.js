@@ -5,75 +5,30 @@ import React from 'react';
 import 'antd/dist/antd.css';
 import './index.css';
 
-import { Slider, Switch, Typography } from 'antd';
+import { Slider, Typography } from 'antd';
 import { useState } from 'react';
-const { Text, Paragraph } = Typography;
+const { Paragraph } = Typography;
 
 const App = () => {
   const [rows, setRows] = useState(1);
-  const [longText, setLongText] = useState(true);
-  const [copyable, setCopyable] = useState(false);
-  const [editable, setEditable] = useState(false);
-  const [expandable, setExpandable] = useState(false);
+  const article =
+    "To be, or not to be, that is a question: Whether it is nobler in the mind to suffer. The slings and arrows of outrageous fortune Or to take arms against a sea of troubles, And by opposing end them? To die: to sleep; No more; and by a sleep to say we end The heart-ache and the thousand natural shocks That flesh is heir to, 'tis a consummation Devoutly to be wish'd. To die, to sleep To sleep- perchance to dream: ay, there's the rub! For in that sleep of death what dreams may come When we have shuffled off this mortal coil, Must give us pause. There 's the respect That makes calamity of so long life";
   return (
     <>
-      <Switch
-        checked={longText}
-        checkedChildren="Long Text"
-        onChange={setLongText}
-      />
-      <Switch checked={copyable} onChange={setCopyable} />
-      <Switch checked={editable} onChange={setEditable} />
-      <Switch checked={expandable} onChange={setExpandable} />
       <Slider value={rows} min={1} max={10} onChange={setRows} />
-      {longText ? (
-        <Paragraph
-          ellipsis={{
-            rows,
-            expandable,
-          }}
-          copyable={copyable}
-          editable={editable}
-        >
-          Ant Design, a design language for background applications, is refined
-          by Ant UED Team. This is a nest sample{' '}
-          <Text code strong delete>
-            Test
-          </Text>{' '}
-          case. Bnt Design, a design language for background applications, is
-          refined by Ant UED Team. Cnt Design, a design language for background
-          applications, is refined by Ant UED Team. Dnt Design, a design
-          language for background applications, is refined by Ant UED Team. Ent
-          Design, a design language for background applications, is refined by
-          Ant UED Team.
-        </Paragraph>
-      ) : (
-        <Paragraph
-          ellipsis={{
-            rows,
-            expandable,
-          }}
-          copyable={copyable}
-          editable={editable}
-        >
-          Hello World
-        </Paragraph>
-      )}
-
-      <Text
-        style={{
-          width: 100,
+      <Paragraph
+        ellipsis={{
+          rows,
+          expandable: true,
+          suffix: '--William Shakespeare',
+          onEllipsis: ellipsis => {
+            console.log('Ellipsis changed:', ellipsis);
+          },
         }}
-        ellipsis
-        copyable
+        title={`${article}--William Shakespeare`}
       >
-        Ant Design is a design language for background applications, is refined
-        by Ant UED Team.
-      </Text>
-
-      <p>
-        [Before]<Text ellipsis>not ellipsis</Text>[After]
-      </p>
+        {article}
+      </Paragraph>
     </>
   );
 };
