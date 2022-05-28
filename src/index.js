@@ -5,74 +5,33 @@ import React from 'react';
 import 'antd/dist/antd.css';
 import './index.css';
 
-import { Switch, Typography } from 'antd';
-import { useState } from 'react';
-const { Paragraph, Text } = Typography;
+import { Typography } from 'antd';
+const { Text } = Typography;
 
-const App = () => {
-  const [ellipsis, setEllipsis] = useState(true);
+const EllipsisMiddle = ({ suffixCount, children }) => {
+  const start = children.slice(0, children.length - suffixCount).trim();
+  const suffix = children.slice(-suffixCount).trim();
   return (
-    <>
-      <Switch
-        checked={ellipsis}
-        onChange={() => {
-          setEllipsis(!ellipsis);
-        }}
-      />
-
-      <Paragraph ellipsis={ellipsis}>
-        Ant Design, a design language for background applications, is refined by
-        Ant UED Team. Ant Design, a design language for background applications,
-        is refined by Ant UED Team. Ant Design, a design language for background
-        applications, is refined by Ant UED Team. Ant Design, a design language
-        for background applications, is refined by Ant UED Team. Ant Design, a
-        design language for background applications, is refined by Ant UED Team.
-        Ant Design, a design language for background applications, is refined by
-        Ant UED Team.
-      </Paragraph>
-
-      <Paragraph
-        ellipsis={
-          ellipsis
-            ? {
-                rows: 2,
-                expandable: true,
-                symbol: 'more',
-              }
-            : false
-        }
-      >
-        Ant Design, a design language for background applications, is refined by
-        Ant UED Team. Ant Design, a design language for background applications,
-        is refined by Ant UED Team. Ant Design, a design language for background
-        applications, is refined by Ant UED Team. Ant Design, a design language
-        for background applications, is refined by Ant UED Team. Ant Design, a
-        design language for background applications, is refined by Ant UED Team.
-        Ant Design, a design language for background applications, is refined by
-        Ant UED Team.
-      </Paragraph>
-
-      <Text
-        style={
-          ellipsis
-            ? {
-                width: 100,
-              }
-            : undefined
-        }
-        ellipsis={
-          ellipsis
-            ? {
-                tooltip: 'I am ellipsis now!',
-              }
-            : false
-        }
-      >
-        Ant Design, a design language for background applications, is refined by
-        Ant UED Team.
-      </Text>
-    </>
+    <Text
+      style={{
+        maxWidth: '100%',
+      }}
+      ellipsis={{
+        suffix,
+      }}
+    >
+      {start}
+    </Text>
   );
 };
+
+const App = () => (
+  <EllipsisMiddle suffixCount={12}>
+    In the process of internal desktop applications development, many different
+    design specs and implementations would be involved, which might cause
+    designers and developers difficulties and duplication and reduce the
+    efficiency of development.
+  </EllipsisMiddle>
+);
 
 render(<App />, document.getElementById('root'));
