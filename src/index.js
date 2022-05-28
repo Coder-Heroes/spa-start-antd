@@ -5,14 +5,29 @@ import React from 'react';
 import 'antd/dist/antd.css';
 import './index.css';
 
-import { Divider, Space, Typography } from 'antd';
+import { Col, Row } from 'antd';
 
 const App = () => (
-  <Space split={<Divider type="vertical" />}>
-    <Typography.Link>Link</Typography.Link>
-    <Typography.Link>Link</Typography.Link>
-    <Typography.Link>Link</Typography.Link>
-  </Space>
+  <>
+    <Row>
+      <Col span={24}>col</Col>
+    </Row>
+    <Row>
+      <Col span={12}>col-12</Col>
+      <Col span={12}>col-12</Col>
+    </Row>
+    <Row>
+      <Col span={8}>col-8</Col>
+      <Col span={8}>col-8</Col>
+      <Col span={8}>col-8</Col>
+    </Row>
+    <Row>
+      <Col span={6}>col-6</Col>
+      <Col span={6}>col-6</Col>
+      <Col span={6}>col-6</Col>
+      <Col span={6}>col-6</Col>
+    </Row>
+  </>
 );
 
 render(<App />, document.getElementById('root'));
