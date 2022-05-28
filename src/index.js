@@ -5,33 +5,77 @@ import React from 'react';
 import 'antd/dist/antd.css';
 import './index.css';
 
-import { Typography } from 'antd';
-const { Text } = Typography;
+import { Slider, Switch, Typography } from 'antd';
+import { useState } from 'react';
+const { Text, Paragraph } = Typography;
 
-const EllipsisMiddle = ({ suffixCount, children }) => {
-  const start = children.slice(0, children.length - suffixCount).trim();
-  const suffix = children.slice(-suffixCount).trim();
+const App = () => {
+  const [rows, setRows] = useState(1);
+  const [longText, setLongText] = useState(true);
+  const [copyable, setCopyable] = useState(false);
+  const [editable, setEditable] = useState(false);
+  const [expandable, setExpandable] = useState(false);
   return (
-    <Text
-      style={{
-        maxWidth: '100%',
-      }}
-      ellipsis={{
-        suffix,
-      }}
-    >
-      {start}
-    </Text>
+    <>
+      <Switch
+        checked={longText}
+        checkedChildren="Long Text"
+        onChange={setLongText}
+      />
+      <Switch checked={copyable} onChange={setCopyable} />
+      <Switch checked={editable} onChange={setEditable} />
+      <Switch checked={expandable} onChange={setExpandable} />
+      <Slider value={rows} min={1} max={10} onChange={setRows} />
+      {longText ? (
+        <Paragraph
+          ellipsis={{
+            rows,
+            expandable,
+          }}
+          copyable={copyable}
+          editable={editable}
+        >
+          Ant Design, a design language for background applications, is refined
+          by Ant UED Team. This is a nest sample{' '}
+          <Text code strong delete>
+            Test
+          </Text>{' '}
+          case. Bnt Design, a design language for background applications, is
+          refined by Ant UED Team. Cnt Design, a design language for background
+          applications, is refined by Ant UED Team. Dnt Design, a design
+          language for background applications, is refined by Ant UED Team. Ent
+          Design, a design language for background applications, is refined by
+          Ant UED Team.
+        </Paragraph>
+      ) : (
+        <Paragraph
+          ellipsis={{
+            rows,
+            expandable,
+          }}
+          copyable={copyable}
+          editable={editable}
+        >
+          Hello World
+        </Paragraph>
+      )}
+
+      <Text
+        style={{
+          width: 100,
+        }}
+        ellipsis
+        copyable
+      >
+        Ant Design is a design language for background applications, is refined
+        by Ant UED Team.
+      </Text>
+
+      <p>
+        [Before]<Text ellipsis>not ellipsis</Text>[After]
+      </p>
+    </>
   );
 };
-
-const App = () => (
-  <EllipsisMiddle suffixCount={12}>
-    In the process of internal desktop applications development, many different
-    design specs and implementations would be involved, which might cause
-    designers and developers difficulties and duplication and reduce the
-    efficiency of development.
-  </EllipsisMiddle>
-);
 
 render(<App />, document.getElementById('root'));
